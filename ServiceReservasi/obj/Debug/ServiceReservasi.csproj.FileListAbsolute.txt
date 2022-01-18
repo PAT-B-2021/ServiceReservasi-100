@@ -1,0 +1,7 @@
+C:\Users\PAVILON GAMING\Documents\Tugas Pat\Reservasi\ServiceReservasi\ServiceReservasi\bin\Debug\ServiceReservasi.dll.config
+C:\Users\PAVILON GAMING\Documents\Tugas Pat\Reservasi\ServiceReservasi\ServiceReservasi\bin\Debug\ServiceReservasi.dll
+C:\Users\PAVILON GAMING\Documents\Tugas Pat\Reservasi\ServiceReservasi\ServiceReservasi\bin\Debug\ServiceReservasi.pdb
+C:\Users\PAVILON GAMING\Documents\Tugas Pat\Reservasi\ServiceReservasi\ServiceReservasi\obj\Debug\ServiceReservasi.csproj.AssemblyReference.cache
+C:\Users\PAVILON GAMING\Documents\Tugas Pat\Reservasi\ServiceReservasi\ServiceReservasi\obj\Debug\ServiceReservasi.csproj.CoreCompileInputs.cache
+C:\Users\PAVILON GAMING\Documents\Tugas Pat\Reservasi\ServiceReservasi\ServiceReservasi\obj\Debug\ServiceReservasi.dll
+C:\Users\PAVILON GAMING\Documents\Tugas Pat\Reservasi\ServiceReservasi\ServiceReservasi\obj\Debug\ServiceReservasi.pdb
