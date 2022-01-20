@@ -13,46 +13,18 @@ namespace ServiceReservasi
 
 
     {
-        string constring = "Data Source=LAPTOP-VHM1FF8V; Initial catalog=WCFReservasi;Persist Security Info=True;User ID=sa;Password=Masamay2601";
+        string constring = "Data Source = LAPTOP-VHM1FF8V;Initial Catalog=WCFTest;Persist Security Info=True; User ID=fa; Password=123";
         SqlConnection connection;
-        SqlCommand com; //Untuk mengkoneksikan database ke visual studio
+        SqlCommand com;
+
         public string deletePemesanan(string IDPemesanan)
         {
             throw new NotImplementedException();
         }
 
-        public List<DetailLokasi> DetailLokasi()
-        {
-            List<DetailLokasi> LokasiFull = new List<DetailLokasi>(); //proses untuk mendeclare nama list yg telah dibuat nama baru
-            try
-            {
-                string sql = "select ID_lokasi, Nama_lokasi, Deskripsi_full, Kuota from dbo.Lokasi"; //declare query
-                connection = new SqlConnection(constring); // fungsi konek ke database
-                com = new SqlCommand(sql, connection); //proses execute query
-                connection.Open(); //membuka koneksi
-                SqlDataReader reader = com.ExecuteReader(); //menampilkan data query
-                while (reader.Read())
-                {
-                    /* nama class*/
-                    DetailLokasi data = new DetailLokasi(); //deklarasi data, mengambil 1persatu dari database
-                    //bentuk array
-                    data.IDLokasi = reader.GetString(0); //0 itu index, ada dikolom keberapa distring sql diatas
-                    data.NamaLokasi = reader.GetString(1);
-                    data.DeskripsiFull = reader.GetString(2);
-                    data.Kuota = reader.GetInt32(3);
-                    LokasiFull.Add(data); //mengumpulkan data yang awalnya dari array
-                }
-                connection.Close(); //untuk menutup akses ke database
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex);
-            }
-            return LokasiFull;
-            throw new NotImplementedException();
-        }
 
-        public string editPemesanan(string IDPemesanan, string NamaCustomer)
+
+        public string editPemesanan(string IDPemesanann, string NamaCustomer)
         {
             throw new NotImplementedException();
         }
@@ -62,41 +34,26 @@ namespace ServiceReservasi
             return string.Format("You entered: {0}", value);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
-        {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
-        }
 
-        public string pemesanan(string IDPemesanan, string NamaCustomer, string NoTelepon, int JumlahPemesanan, string IDLokasi)
+        public string pemesanan(string IDPemesanan, string NamaCustomer, string NoTelpon, int JumlahPemesanan, string IDLokasi)
         {
             string a = "gagal";
             try
             {
-                string sql = "insert into dbo.Pemesanan value(" + IDPemesanan + "," + NamaCustomer + "," + NoTelepon + "," + JumlahPemesanan + "," + IDLokasi + ")";
-                connection = new SqlConnection(constring); //fungsi konek ke database
+                string sql = "insert into dbo.Pemesanan values ('" + IDPemesanan + "', '" + NamaCustomer + "','" + NoTelpon + "', " + JumlahPemesanan + ", '" + IDLokasi + "')";
+                connection = new SqlConnection(constring);
                 com = new SqlCommand(sql, connection);
                 connection.Open();
                 com.ExecuteNonQuery();
                 connection.Close();
-                a = "sukses";
+                a = "success";
             }
             catch (Exception es)
             {
                 Console.WriteLine(es);
             }
             return a;
-
-            throw new NotImplementedException();
         }
-
         public List<Pemesanan> Pemesanan()
         {
             throw new NotImplementedException();
@@ -106,5 +63,44 @@ namespace ServiceReservasi
         {
             throw new NotImplementedException();
         }
+
+        public List<DetailLokasi> DetailLokasi()
+        {
+            List<DetailLokasi> LokasiFull = new List<DetailLokasi>();
+            try
+            {
+                string sql = "select id_lokasi, nama_lokasi, deskripsi_full, kuota from dbo.Lokasi";
+                connection = new SqlConnection(constring);
+                com = new SqlCommand(sql, connection);
+                connection.Open();
+                SqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    DetailLokasi data = new DetailLokasi();
+
+                    data.IDLokasi = reader.GetString(0);
+                    data.NamaLokasi = reader.GetString(1);
+                    data.DeskripsiFull = reader.GetString(2);
+                    data.Kuota = reader.GetInt32(3);
+                    LokasiFull.Add(data);
+                }
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+            return LokasiFull;
+
+        }
+
+        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        {
+            throw new NotImplementedException();
+        }
     }
+
+
+
+
 }
